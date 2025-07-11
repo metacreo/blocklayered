@@ -1,8 +1,6 @@
-{**
+<?php
+/**
  * Copyright (C) 2017-2024 thirty bees
- * Copyright (C) 2007-2016 PrestaShop SA
- *
- * thirty bees is an extension to the PrestaShop software by PrestaShop SA.
  *
  * NOTICE OF LICENSE
  *
@@ -15,13 +13,17 @@
  * to license@thirtybees.com so we can send you a copy immediately.
  *
  * @author    thirty bees <modules@thirtybees.com>
- * @author    PrestaShop SA <contact@prestashop.com>
  * @copyright 2017-2024 thirty bees
- * @copyright 2007-2016 PrestaShop SA
  * @license   Academic Free License (AFL 3.0)
- * PrestaShop is an internationally registered trademark of PrestaShop SA.
- *}
+ */
 
-<div id="product_list" class="product_list clear">
-	<p class="warning">{l s='There are no products.' mod='blocklayered'}</p>
-</div>
+header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
+
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+
+header('Location: ../');
+
+exit;

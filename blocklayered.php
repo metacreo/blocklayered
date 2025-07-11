@@ -3630,12 +3630,10 @@ class BlockLayered extends Module
             $smarty->assign('meta_keywords', rtrim($category_title.', '.$keywords.', '.$category_metas['meta_keywords'], ', '));
         }
 
+        $this->context->controller->addJS($this->_path.'assets/vendor/nouislider/nouislider.min.js');
+        $this->context->controller->addCSS($this->_path.'assets/vendor/nouislider/nouislider.min.css', 'all');
         $this->context->controller->addJS(($this->_path).'blocklayered.js');
-        $this->context->controller->addJS(_PS_JS_DIR_.'jquery/jquery-ui-1.8.10.custom.min.js');
-        $this->context->controller->addJQueryUI('ui.slider');
-        $this->context->controller->addCSS(_PS_CSS_DIR_.'jquery-ui-1.8.10.custom.css');
         $this->context->controller->addCSS(($this->_path).'blocklayered.css', 'all');
-        $this->context->controller->addJQueryPlugin('scrollTo');
 
         $filters = $this->getSelectedFilters();
 
@@ -4133,7 +4131,7 @@ class BlockLayered extends Module
         $category = new Category(Tools::getValue('id_category_layered', Configuration::get('PS_HOME_CATEGORY')), (int) $cookie->id_lang);
 
         // Generate meta title and meta description
-        $category_title = $category->name;
+        $category_title = (empty($category->meta_title) ? $category->name : $category->meta_title);
         $category_metas = Meta::getMetaTags((int) $cookie->id_lang, 'category');
         $title = '';
         $keywords = '';
