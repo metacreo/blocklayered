@@ -22,10 +22,11 @@
  * PrestaShop is an internationally registered trademark of PrestaShop SA.
  */
 
-$(document).ready(function()
-{
-	$('#selectProductSort').unbind('change').bind('change', function()
-	{
-		reloadContent();
-	})
+document.addEventListener('DOMContentLoaded', () => {
+    const selectElement = document.getElementById('selectProductSort');
+    if (selectElement) {
+        selectElement.addEventListener('change', () => {
+            reloadContent();
+        });
+    }
 });
